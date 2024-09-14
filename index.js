@@ -26,14 +26,16 @@ const listarMetas = async () => {
         instructions: false,
     })
 
+    metas.forEach((m) => {
+        m.checked = false
+    })
+
     if(respostas.length == 0) {
         console.log ("Nenhum meta selecionada!")
         return
     }
 
-    metas.forEach((m) => {
-        m.checked = false
-    })
+
 
     respostas.forEach((respostas) => {
         const meta = metas.find((m) => {
@@ -56,6 +58,7 @@ const metasRealizadas = async () => {
     if(realizadas.length == 0){
         console.log('Não existem metas realizadas')
         return 
+        
     }
 
     await select({
