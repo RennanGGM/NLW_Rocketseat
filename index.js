@@ -1,5 +1,7 @@
 const { select, input, checkbox } = require('@inquirer/prompts')
 
+let message = "Bem-vindo(a) ao App de Metas";
+
 let meta = {
     value: "Tomar 3l de água por dia.",
     checked: false,
@@ -109,11 +111,20 @@ const deletarMetas = async () => {
     console.log("Meta(s) deleta(s) com sucesso!")
 }
 
+const mostrarMensagem = () => {
+    console.clear();
+
+    if(message != "") {
+        console.log(message)
+        console.log("")
+        message = "" 
+    }
+}
 
 const start = async () => {
     
     while(true){
-    
+        mostrarMensagem()
       
          const opcao = await select ({
             message: "Menu >",
